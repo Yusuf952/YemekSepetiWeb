@@ -1,0 +1,39 @@
+﻿@model IEnumerable<YemekSepetiWeb.Models.Restoranlar>
+
+@{
+    ViewData["Title"] = "Acıktın mı?";
+}
+
+<div class="text-center mt-4">
+    <h1 class="display-4 text-danger font-weight-bold">Yemeksepeti</h1>
+    <p class="lead">Hangi restorandan sipariş vermek istersin?</p>
+</div>
+
+<div class="container mt-5">
+    <div class="row">
+        @foreach (var item in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card shadow-sm border-0 h-100">
+                    <div class="card-header bg-danger text-white text-center font-weight-bold">
+                        @item.RestoranAdi
+                    </div>
+
+                    <div class="card-body text-center">
+                        <h5 class="card-title text-secondary">@item.Kategori</h5>
+                        <p class="card-text text-muted">Minimum Tutar: <strong>@item.MinTutar TL</strong></p>
+                        <p class="card-text">
+                            <span class="badge bg-success p-2">Puan: @item.Puan / 10</span>
+                        </p>
+                    </div>
+
+                    <div class="card-footer bg-white border-0 text-center pb-4">
+                        <a asp-action="Menu" asp-route-id="@item.RestoranId" class="btn btn-outline-danger btn-block">
+                            🍽️ Menüyü Gör & Sipariş Ver
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>

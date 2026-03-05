@@ -1,0 +1,85 @@
+﻿@model IEnumerable<YemekSepetiWeb.Models.Urunler>
+
+@{
+    ViewData["Title"] = "Sepetim";
+    decimal toplamTutar = 0;
+}
+
+<div class="container mt-5">
+    <h2 class="text-center mb-4">🛒 Sepetim</h2>
+
+    @if (!Model.Any())
+    {
+        <div class="alert alert-info text-center p-5">
+            <h4>Sepetin şu an boş!</h4>
+            <p>Lezzetli yemekler seni bekliyor.</p>
+            <a asp-action="Index" class="btn btn-primary mt-3">Restoranlara Dön</a>
+        </div>
+    }
+    else
+    {
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="list-group mb-3">
+                    @foreach (var item in Model)
+                    {
+                        toplamTutar += item.Fiyat;
+                        <li class="list-group-item d-flex justify-content-between lh-condensed">
+                            <div>
+                                <h6 class="my-0">@item.UrunAdi</h6>
+                                <small class="text-muted">@item.Restoran?.RestoranAdi</small>
+                            </div>
+                            <span class="text-muted">@item.Fiyat TL</span>
+                        </li>
+                    }
+                    <li class="list-group-item d-flex justify-content-between bg-light">
+                        <span class="text-success">Toplam Tutar (TL)</span>
+                        <strong class="text-success">@toplamTutar TL</strong>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow">
+                    <div class="card-header bg-success text-white">
+                        Siparişi Tamamla
+                    </div>
+                    <div class="card-body">
+                        <form asp-action="SiparisiTamamla" method="post">
+
+                            <input type="hidden" name="toplamTutar" value="@toplamTutar" />
+
+                            <div class="form-group mb-3">
+                                <label class="font-weight-bold">Siparişi Veren Kişi:</label>
+
+                                @if (ViewBag.MusteriAd != null)
+                                {
+                                    <div class="alert alert-success p-2">
+                                        👤 <strong>@ViewBag.MusteriAd</strong>
+                                        <br>
+                                        <small>(Giriş Başarılı)</small>
+                                    </div>
+                                    <input type="hidden" name="kullaniciId" value="@ViewBag.MusteriId" />
+                                }
+                                else
+                                {
+                                    <select name="kullaniciId" class="form-control" asp-items="ViewBag.Kullanicilar" required>
+                                        <option value="">-- Müşteri Seçiniz --</option>
+                                    </select>
+                                }
+                            </div>
+
+                            <button type="submit" class="btn btn-success btn-block w-100">
+                                ✅ Siparişi Onayla
+                            </button>
+                        </form>
+
+                        <a asp-action="Index" class="btn btn-outline-secondary btn-block w-100 mt-2">
+                            Alışverişe Devam Et
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    }
+</div>

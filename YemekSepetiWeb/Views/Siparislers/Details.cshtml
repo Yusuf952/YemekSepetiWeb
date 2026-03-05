@@ -1,0 +1,48 @@
+﻿@model YemekSepetiWeb.Models.Siparisler
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Siparisler</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Tarih)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Tarih)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.ToplamTutar)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.ToplamTutar)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Durum)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Durum)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Kullanici)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Kullanici.KullaniciId)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Restoran)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Restoran.RestoranId)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.SiparisId">Edit</a> |
+    <a asp-action="Index">Back to List</a>
+</div>

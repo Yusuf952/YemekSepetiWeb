@@ -1,0 +1,69 @@
+﻿@{
+    ViewData["Title"] = "Yönetim Paneli";
+}
+
+<div class="text-center mb-4">
+    <h1 class="display-4">Yemeksepeti Yönetim Paneli</h1>
+    <p class="lead">Veritabanı Yönetim Sistemi ve Kontrol Merkezi</p>
+</div>
+
+<div class="row mb-5">
+    <div class="col-12">
+        <div class="card bg-dark text-white shadow-lg text-center p-4">
+            <h2>🚀 Müşteri Deneyimi (Simülasyon)</h2>
+            <p>Son kullanıcıların restoranları gördüğü ve sipariş verdiği arayüzü test et.</p>
+            <a asp-controller="Musteri" asp-action="Index" class="btn btn-success btn-lg px-5">🍽️ Müşteri Uygulamasını Aç</a>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm border-primary">
+            <div class="card-body text-center">
+                <h3 class="card-title text-primary">🏢 Restoranlar</h3>
+                <p class="card-text">Yeni restoran ekle, puanları düzenle veya restoranları listele.</p>
+                <a asp-controller="Restoranlars" asp-action="Index" class="btn btn-primary btn-lg btn-block">Restoranlara Git</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm border-success">
+            <div class="card-body text-center">
+                <h3 class="card-title text-success">🍕 Menü & Ürünler</h3>
+                <p class="card-text">Yemekleri tanımla, fiyatları güncelle ve menüleri yönet.</p>
+                <a asp-controller="Urunlers" asp-action="Index" class="btn btn-success btn-lg btn-block">Ürünlere Git</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+        <div class="card h-100 shadow-sm border-info">
+            <div class="card-body text-center">
+                <h3 class="card-title text-info">👥 Kullanıcılar</h3>
+                <p class="card-text">Müşteri kayıtlarını incele, adres bilgilerini yönet.</p>
+                <a asp-controller="Kullanicilars" asp-action="Index" class="btn btn-info btn-lg btn-block text-white">Kullanıcılara Git</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-warning">
+            <div class="card-body text-center">
+                <h3 class="card-title text-warning">📝 Sipariş Fişleri</h3>
+                <p class="card-text">Yeni sipariş oluştur, durumunu (Hazırlanıyor/Teslim) güncelle.</p>
+                <a asp-controller="Siparislers" asp-action="Index" class="btn btn-warning btn-lg btn-block text-white">Siparişlere Git</a>
+            </div>
+        </div>
+    </div>
+
+    <div class="col-md-6 mb-4">
+        <div class="card h-100 shadow-sm border-danger">
+            <div class="card-body text-center">
+                <h3 class="card-title text-danger">🛒 Sipariş Detayları</h3>
+                <p class="card-text">Siparişlerin içeriğini (hangi yemek, kaç adet) buradan yönet.</p>
+                <a asp-controller="SiparisDetays" asp-action="Index" class="btn btn-danger btn-lg btn-block">Detaylara Git</a>
+            </div>
+        </div>
+    </div>
+</div></div>

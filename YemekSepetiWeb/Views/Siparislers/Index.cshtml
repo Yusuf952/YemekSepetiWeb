@@ -1,0 +1,60 @@
+﻿@model IEnumerable<YemekSepetiWeb.Models.Siparisler>
+
+@{
+    ViewData["Title"] = "Siparişler Listesi";
+}
+
+<h1>Siparişler</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-primary">Yeni Sipariş Oluştur</a>
+</p>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Tarih)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ToplamTutar)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Durum)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Kullanici)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Restoran)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Tarih)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.ToplamTutar) ₺
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Durum)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Kullanici.AdSoyad)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Restoran.RestoranAdi)
+                </td>
+                <td>
+                    <a asp-action="Edit" asp-route-id="@item.SiparisId">Düzenle</a> |
+                    <a asp-action="Details" asp-route-id="@item.SiparisId">Detay</a> |
+                    <a asp-action="Delete" asp-route-id="@item.SiparisId">Sil</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
