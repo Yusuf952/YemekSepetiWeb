@@ -25,7 +25,7 @@ Rather than relying on ready-made identity templates, I built this monolithic we
 ## How to Run the Project (Deployment)
 I have included a database script so you can easily replicate the environment on your local machine.
 
-1. Clone the repository: `git clone https://github.com/YOUR_GITHUB_USERNAME/YemekSepetiWeb.git`
+1. Clone the repository: git clone https://github.com/Yusuf952/YemekSepetiWeb.git
 2. Open **Microsoft SQL Server Management Studio (SSMS)**.
 3. Open the `YemekSepeti_Db_Yedek.sql` file included in the project directory and execute it. This will automatically create the schema and populate the tables with initial test data.
 4. Update the `appsettings.json` file with your local SQL Server connection string.
